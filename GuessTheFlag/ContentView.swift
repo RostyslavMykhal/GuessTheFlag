@@ -11,15 +11,35 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Poland", "UK", "Ukraine", "US"]
+    // funny answers
+    @State private var trueAnswers = ["YES!", "You're goddanm right..🥸","Correct! 🤓", "Well Done!", "More points!", "MORE POINTS!!! 🤩", "Show must go on 🕺🏼"]
+    @State private var falseAnswers = ["You lose :(", "Wrong!😓", "You can better!🥺", "Take it seriously ☹️", "Think more please 🙏"]
+    
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var scores = 0
     
+    func getRandomTrueAnswer() -> String {
+        if let randomElement = trueAnswers.randomElement() {
+            return randomElement
+        } else {
+            // Handle the case where the array is empty
+            return "No answers available"
+        }
+    }
+    func getRandomFalseAnswer() -> String{
+        if let randomElement = falseAnswers.randomElement() {
+            return randomElement
+        } else {
+            return "No answers available"
+        }
+    }
+    
     func flagTapped(_ number: Int){
         if number == correctAnswer{
-            scoreTitle = "Correct"
+            scoreTitle = getRandomTrueAnswer()
             scores += 1
         } else {
-            scoreTitle = "Wrong! Your scores was downgrated"
+            scoreTitle = getRandomFalseAnswer()
             scores = 0
         }
         showingScore = true
@@ -66,7 +86,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
                 .background(.regularMaterial)
                 .clipShape(.rect(cornerRadius: 20))
