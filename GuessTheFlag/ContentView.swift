@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Poland", "UK", "Ukraine", "US"]
     // funny answers
-    @State private var trueAnswers = ["YES!", "You're goddanm right..🥸","Correct! 🤓", "Well Done!", "More points!", "MORE POINTS!!! 🤩", "Show must go on 🕺🏼"]
-    @State private var falseAnswers = ["You lose :(", "Wrong!😓", "You can better!🥺", "Take it seriously ☹️", "Think more please 🙏"]
+    @State private var trueAnswers = ["YES!", "You're goddanm right..🥸","Correct! 🤓", "Well Done!", "More points!", "MORE POINTS!!! 🤩", "Show must go on 🕺🏼"] // true
+    @State private var falseAnswers = ["You lose :(", "Wrong!😓", "You can better!🥺", "Take it seriously ☹️", "Think more please 🙏"] // falseу
     
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var scores = 0
